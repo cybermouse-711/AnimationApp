@@ -9,10 +9,25 @@ import SwiftUI
 
 struct StarView: View {
     
+    let frame: CGFloat
+
+    var body: some View {
+        
+        ZStack{
+            Star(color: .white, round: 60)
+            Star(color: .white, round: 270)
+        }
+        .frame(width: frame, height: frame)
+    }
+}
+
+private struct Star: View {
+    
     let color: Color
     let round: Double
     
     var body: some View {
+        
         GeometryReader { geometry in
             let width = geometry.size.width
             let height = geometry.size.height
@@ -40,7 +55,6 @@ struct StarView: View {
 
 struct StarView_Previews: PreviewProvider {
     static var previews: some View {
-        StarView(color: .gray, round: 60)
-            .frame(width: 200, height: 200)
+        StarView(frame: 200)
     }
 }
