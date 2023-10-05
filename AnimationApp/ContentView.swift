@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var awardIsShowing = false
+    
     var body: some View {
         ZStack {
             LinearGradient(
@@ -36,23 +39,42 @@ struct ContentView: View {
                     Spacer()
                 }
                 
-                StarView(frame: 80)
-                    .padding(.top, 60)
-                
+                if awardIsShowing {
+                    StarView(frame: 80)
+                        .padding(.top, 60)
+                        .transition(.changePoint)
+                }
+
                 Spacer()
                 
-                Button(action: {}) {
-                    Text("Загадать желание")
+                Button(action: starAnimation) {
+                    Text(awardIsShowing ? "Желание загадывается" : "Загадать желание")
                         .bold()
                         .foregroundColor(.blue)
                 }
-                .frame(width: 200, height: 50)
+                .frame(width: 250, height: 50)
                 .background(.white)
                 .opacity(0.8)
                 .cornerRadius(20)
             }
             .padding()
         }
+    }
+    
+    private func starAnimation() {
+        withAnimation{
+            awardIsShowing.toggle()
+        }
+    }
+}
+
+extension AnyTransition {
+    static var changePoint: AnyTransition {
+        let animation1 = AnyTransition.move(edge: .leading)
+        
+        let animation2 = AnyTransition.move(edge: .bottom)
+        
+        return .asymmetric(insertion: animation1, removal: animation2)
     }
 }
 
