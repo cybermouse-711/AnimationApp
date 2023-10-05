@@ -37,14 +37,19 @@ struct ContentView: View {
                 }
                 
                 StarView(frame: 80)
-                    .padding(.top, 40)
+                    .padding(.top, 60)
                 
                 Spacer()
                 
                 Button(action: {}) {
                     Text("Загадать желание")
-                        .foregroundColor(.white)
+                        .bold()
+                        .foregroundColor(.blue)
                 }
+                .frame(width: 200, height: 50)
+                .background(.white)
+                .opacity(0.8)
+                .cornerRadius(20)
             }
             .padding()
         }
