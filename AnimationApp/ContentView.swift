@@ -9,10 +9,45 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("Hello, world!")
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors:[.black, .blue]),
+                startPoint: UnitPoint(x: 0, y: 0),
+                endPoint: UnitPoint(x: 1, y: 1)
+            )
+            .ignoresSafeArea()
+   
+            VStack {
+                HStack {
+                    Spacer()
+                    StarView(frame: 20)
+                        .padding(.top, 10)
+                    Spacer()
+                    StarView(frame: 30)
+                        .padding(.top, 30)
+                    Spacer()
+                }
+                HStack {
+                    StarView(frame: 45)
+                        .padding(.top, 70)
+                    Spacer()
+                    StarView(frame: 20)
+                        .padding(.top, 10)
+                    Spacer()
+                }
+                
+                StarView(frame: 80)
+                    .padding(.top, 40)
+                
+                Spacer()
+                
+                Button(action: {}) {
+                    Text("Загадать желание")
+                        .foregroundColor(.white)
+                }
+            }
+            .padding()
         }
-        .padding()
     }
 }
 

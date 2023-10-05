@@ -47,7 +47,7 @@ private struct Star: View {
                 path.addLine(to: CGPoint(x: middle, y: nearLine))
             }
             .fill(color)
-            .opacity(0.5)
+            .opacity(0.7)
             .rotationEffect(.degrees(round))
         }
     }
