@@ -12,6 +12,7 @@
 		C6E74BAE2ACDFCA200DF8A16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E74BAD2ACDFCA200DF8A16 /* Assets.xcassets */; };
 		C6E74BB12ACDFCA200DF8A16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E74BB02ACDFCA200DF8A16 /* Preview Assets.xcassets */; };
 		C6E74BB82ACDFD3F00DF8A16 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E74BB72ACDFD3F00DF8A16 /* StarView.swift */; };
+		C6E74BBA2AD330AC00DF8A16 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E74BB92AD330AC00DF8A16 /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		C6E74BAD2ACDFCA200DF8A16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6E74BB02ACDFCA200DF8A16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C6E74BB72ACDFD3F00DF8A16 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
+		C6E74BB92AD330AC00DF8A16 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				C6E74BA92ACDFCA100DF8A16 /* AnimationAppApp.swift */,
 				C6E74BAB2ACDFCA100DF8A16 /* ContentView.swift */,
+				C6E74BB92AD330AC00DF8A16 /* ButtonView.swift */,
 				C6E74BB72ACDFD3F00DF8A16 /* StarView.swift */,
 				C6E74BAD2ACDFCA200DF8A16 /* Assets.xcassets */,
 				C6E74BAF2ACDFCA200DF8A16 /* Preview Content */,
@@ -142,6 +145,7 @@
 			files = (
 				C6E74BB82ACDFD3F00DF8A16 /* StarView.swift in Sources */,
 				C6E74BAC2ACDFCA100DF8A16 /* ContentView.swift in Sources */,
+				C6E74BBA2AD330AC00DF8A16 /* ButtonView.swift in Sources */,
 				C6E74BAA2ACDFCA100DF8A16 /* AnimationAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
