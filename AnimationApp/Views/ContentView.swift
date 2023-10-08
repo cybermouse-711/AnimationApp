@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @StateObject private var timer = TimerCounter()
     @State private var awardIsShowing = false
     
     var body: some View {
@@ -23,23 +24,19 @@ struct ContentView: View {
             VStack {
                 HStack {
                     Spacer()
-                    StarView(frame: 20)
-                        .padding(.top, 10)
+                    StarView(frame: 20).padding(.top, 10)
                     Spacer()
-                    StarView(frame: 30)
-                        .padding(.top, 30)
-                    Spacer()
+                    StarView(frame: 30).padding(.top, 30)
                 }
+                
                 HStack {
-                    StarView(frame: 45)
-                        .padding(.top, 70)
+                    StarView(frame: 45).padding(.top, 70)
                     Spacer()
-                    StarView(frame: 20)
-                        .padding(.top, 10)
+                    StarView(frame: 20).padding(.top, 20)
                     Spacer()
                 }
                 
-                if awardIsShowing {
+                if !awardIsShowing {
                     StarView(frame: 80)
                         .padding(.top, 60)
                         .transition(.changePoint)
@@ -47,15 +44,12 @@ struct ContentView: View {
 
                 Spacer()
                 
-                Button(action: starAnimation) {
-                    Text(awardIsShowing ? "Желание загадывается" : "Загадать желание")
-                        .bold()
-                        .foregroundColor(.blue)
-                }
-                .frame(width: 250, height: 50)
-                .background(.white)
-                .opacity(0.8)
-                .cornerRadius(20)
+                ButtonView(
+                    text: "\(awardIsShowing ? "Желание загадывается" : "Загадать желание")",
+                    action: starAnimation
+                )
+                .opacity(awardIsShowing ? 0.7 : 0.9)
+                .scaleEffect(awardIsShowing ? 0.8 : 1)
             }
             .padding()
         }
@@ -71,9 +65,10 @@ struct ContentView: View {
 extension AnyTransition {
     static var changePoint: AnyTransition {
         let animation1 = AnyTransition.move(edge: .leading)
-        
+            .combined(with: .scale)
         let animation2 = AnyTransition.move(edge: .bottom)
-        
+            .combined(with: .opacity)
+                    
         return .asymmetric(insertion: animation1, removal: animation2)
     }
 }

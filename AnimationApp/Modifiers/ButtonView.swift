@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ButtonView: View {
     
-    @Binding var awardIsShowing: Bool
-    
     let text: String
     let action: () -> Void
     
@@ -23,9 +21,8 @@ struct ButtonView: View {
         }
         .frame(width: 250, height: 50)
         .background(.white)
-        .opacity(0.8)
+        .opacity(0.9)
         .cornerRadius(20)
-        .scaleEffect(awardIsShowing ? 1.5 : 1)
     }
     
     
@@ -33,6 +30,6 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(awardIsShowing: .constant(false), text: "Button", action: {})
+        ButtonView(text: "Button", action: {})
     }
 }
