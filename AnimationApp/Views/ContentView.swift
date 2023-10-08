@@ -46,7 +46,7 @@ struct ContentView: View {
                 
                 ButtonView(
                     text: "\(awardIsShowing ? "Желание загадывается" : "Загадать желание")",
-                    action: starAnimation
+                    action: awardIsShowing ? timer.startTimer : starAnimation
                 )
                 .opacity(awardIsShowing ? 0.7 : 0.9)
                 .scaleEffect(awardIsShowing ? 0.8 : 1)
@@ -64,12 +64,12 @@ struct ContentView: View {
 
 extension AnyTransition {
     static var changePoint: AnyTransition {
-        let animation1 = AnyTransition.move(edge: .leading)
+        let animationEnd = AnyTransition.move(edge: .leading)
             .combined(with: .scale)
-        let animation2 = AnyTransition.move(edge: .bottom)
+        let animationStart = AnyTransition.move(edge: .bottom)
             .combined(with: .opacity)
                     
-        return .asymmetric(insertion: animation1, removal: animation2)
+        return .asymmetric(insertion: animationEnd, removal: animationStart)
     }
 }
 

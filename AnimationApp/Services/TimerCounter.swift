@@ -14,7 +14,7 @@ class TimerCounter: ObservableObject {
     var counter = 3
     var timer: Timer?
     
-    @ObservedObject var awardIsShowing = true
+    @Published var awardIsShowing = true
     
     func startTimer() {
         if counter > 0 {
