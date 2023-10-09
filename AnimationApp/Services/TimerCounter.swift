@@ -11,10 +11,10 @@ import Foundation
 class TimerCounter: ObservableObject {
     let objectWillChange = ObservableObjectPublisher()
     
-    var counter = 3
+    var counter = 2
     var timer: Timer?
     
-    @Published var awardIsShowing = true
+    var awardIsShowing = false
     
     func startTimer() {
         if counter > 0 {
@@ -30,7 +30,8 @@ class TimerCounter: ObservableObject {
     }
     
     private func stopAnimation() {
-            awardIsShowing.toggle()
+        awardIsShowing.toggle()
+        objectWillChange.send()
     }
     
     @objc private func updateTimer() {
@@ -40,10 +41,10 @@ class TimerCounter: ObservableObject {
         } else {
             timer?.invalidate()
             timer = nil
+            awardIsShowing.toggle()
         }
-        
         objectWillChange.send()
     }
     
-        
+    
 }

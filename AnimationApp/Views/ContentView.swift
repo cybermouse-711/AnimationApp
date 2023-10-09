@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject private var timer = TimerCounter()
-    @State private var awardIsShowing = false
     
     var body: some View {
         ZStack {
@@ -20,7 +19,7 @@ struct ContentView: View {
                 endPoint: UnitPoint(x: 1, y: 1)
             )
             .ignoresSafeArea()
-   
+            
             VStack {
                 HStack {
                     Spacer()
@@ -36,20 +35,21 @@ struct ContentView: View {
                     Spacer()
                 }
                 
-                if !awardIsShowing {
+                if !timer.awardIsShowing {
                     StarView(frame: 80)
                         .padding(.top, 60)
                         .transition(.changePoint)
                 }
-
+                
                 Spacer()
                 
                 ButtonView(
-                    text: "\(awardIsShowing ? "Желание загадывается" : "Загадать желание")",
-                    action: awardIsShowing ? timer.startTimer : starAnimation
+                    text: "\(timer.awardIsShowing ? "Желание загадывается" : "Загадать желание")",
+                    action:  starAnimation
                 )
-                .opacity(awardIsShowing ? 0.7 : 0.9)
-                .scaleEffect(awardIsShowing ? 0.8 : 1)
+                .opacity(timer.awardIsShowing ? 0.7 : 0.9)
+                .scaleEffect(timer.awardIsShowing ? 0.8 : 1)
+                .animation(.easeInOut, value: timer.awardIsShowing)
             }
             .padding()
         }
@@ -57,7 +57,7 @@ struct ContentView: View {
     
     private func starAnimation() {
         withAnimation{
-            awardIsShowing.toggle()
+            timer.startTimer()
         }
     }
 }
