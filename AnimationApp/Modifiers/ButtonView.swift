@@ -24,8 +24,6 @@ struct ButtonView: View {
         .opacity(0.9)
         .cornerRadius(20)
     }
-    
-    
 }
 
 struct ButtonView_Previews: PreviewProvider {

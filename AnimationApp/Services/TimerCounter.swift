@@ -46,6 +46,4 @@ class TimerCounter: ObservableObject {
         }
         objectWillChange.send()
     }
-    
-    
 }
