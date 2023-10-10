@@ -39,6 +39,7 @@ class TimerCounter: ObservableObject {
         if counter > 0 {
             counter -= 1
         } else {
+            counter = 2
             timer?.invalidate()
             timer = nil
             awardIsShowing.toggle()
